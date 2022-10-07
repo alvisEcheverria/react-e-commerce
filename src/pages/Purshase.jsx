@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Container, ListGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getPurshasesThunk } from '../store/slices/purshase.slice';
 
 const Purshase = () => {
 
     const dispatch = useDispatch()
         const purshases = useSelector(state => state.purshases)
-            const navigate = useNavigate()
 
     useEffect(()=> {
         dispatch(getPurshasesThunk())
@@ -35,11 +34,10 @@ const Purshase = () => {
                         {
                             purshase.cart.products.map((products) =>(
                                 <li className='border-top border-bottom' 
-                                    key={products.id} 
-                                    onClick={()=> navigate(`/product/${products.id}`)}
+                                    key={products.id}
                                 >
                                     <p>{products.brand}</p>
-                                    <h5>{products.title}</h5>
+                                    <Link to={`/product/${products.id}`}><h5>{products.title}</h5></Link>
 
                                         <div className='d-flex position-relative'>
                                             <p>Quantity: {products.productsInCart.quantity}</p>
