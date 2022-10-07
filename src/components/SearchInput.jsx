@@ -4,7 +4,6 @@ import { Button, Form, InputGroup, ListGroup, NavDropdown } from 'react-bootstra
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setFilteredCategory } from '../store/slices/filteredCategory.slice';
-import '../styles/searchInput.css'
 
 const SearchInput = () => {
 
@@ -91,14 +90,14 @@ const SearchInput = () => {
                         placeholder='What are you looking for?'
                         style={{ height: '40px' }}
                     />
-                    <Button variant='success' id="button-addon2" style={{ height: '40px' }}>
+                    <Button className='d-flex align-items-center' variant='success' id="button-addon2" style={{ height: '40px' }}>
                         <span style={{ fontSize: '20px' }}> <i className="fa-solid fa-magnifying-glass"></i></span>
                     </Button>
 
                     <ListGroup className='position-absolute' style={{ width: '89.3%', top: '40px', zIndex: '100', cursor: 'pointer', fontSize: '10px' }}>
                         {
                             productsSearch.map(product => (
-                                <ListGroup.Item key={product.id} onClick={clickSearch} to='/product' as={Link}>
+                                <ListGroup.Item className='img-fluid' key={product.id} onClick={clickSearch} to='/product' as={Link}>
                                     {product.title}
                                 </ListGroup.Item>
                             ))

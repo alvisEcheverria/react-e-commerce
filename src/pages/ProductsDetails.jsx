@@ -41,14 +41,14 @@ const ProductsDetails = () => {
 
         setProductImg(img)
 
-    },[id])
-
+    },[id, productDetail])
+    
     return (
 
         <Container className='mt-5 mb-5'>
             <Row>
                 <Col lg={7}>
-                    <div className='text-center' style={{width: '100%'}}>
+                    <div id='img-detail' className='text-center' style={{width: '100%'}}>
                         <img className='img-fluid' style={{height: '300px'}} src={productImg} alt="" />
                     </div>
                     <div className='d-flex justify-content-center gap-5'>
@@ -100,7 +100,8 @@ const ProductsDetails = () => {
                         relatedProducts.map(products => (
                             <Col key={products.id} className='d-flex justify-content-center'>
                                 <Card style={{ width: '250px', height: '310px', cursor: 'pointer' }}
-                                    onClick={() => navigate(`/product/${products.id}`)}>
+                                        onClick={() => navigate(`/product/${products.id}`)}
+                                >
                                     <Card.Img variant="top"
                                         src={products?.productImgs[2]}
                                         alt="product"

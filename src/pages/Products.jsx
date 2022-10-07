@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardGroup, Col, Container, ListGroup, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import PriceFilter from '../components/PriceFilter';
 import { setFilteredCategory } from '../store/slices/filteredCategory.slice';
-import { getProductsThunk } from '../store/slices/products.slice';
 import '../styles/home.css'
 
 const Products = () => {
@@ -24,8 +24,10 @@ const Products = () => {
     }, [])
 
     const filterCategory = (categoryId) =>{
+        
         const filtered = products.filter(product => product.category.id === categoryId)
         dispatch(setFilteredCategory(filtered))
+
     }
 
     return (
@@ -37,6 +39,7 @@ const Products = () => {
                         <ListGroup.Item as="li" action
                                                 onClick={()=>dispatch(setFilteredCategory(products))}
                                                 style={{cursor: 'pointer'}}
+                                                className='text-center'
                         >
                             All Products
                         </ListGroup.Item>
@@ -46,20 +49,30 @@ const Products = () => {
                                                             key={category.id} 
                                                             onClick={()=> filterCategory(category.id)}
                                                             style={{cursor: 'pointer'}}
+                                                            className='text-center'
                                     >
                                         {category.name}
                                     </ListGroup.Item>
                                 ))
                             }
                     </ListGroup>
+                    
+                    <PriceFilter/>
                 </Col>
+
+                {
+                filteredCategory.length === 0 &&
+                    <Col lg={10}>
+                        <img className='img-fluid p-5' src="./img/not_found.jpg" alt="" />
+                    </Col>
+                }
                 <Col lg={10}>
                     <CardGroup>
-                        <Row xs={1} md={2} lg={3} className="g-5">
+                        <Row xs={1} md={2} lg={3} className="g-3">
                                 {
                                     filteredCategory.map(product =>(
                                     <Col key={product.id}>
-                                        <Card className='me-5 ms-5'  style={{width: '250px', height: '360px', cursor: 'pointer'}} 
+                                        <Card  style={{width: '250px', height: '360px', cursor: 'pointer', marginRight: '10rem'}} 
                                                 onClick={()=> navigate(`/product/${product.id}`)}>  
                                             <Card.Img   variant="top" 
                                                         src={product.productImgs[2]} 

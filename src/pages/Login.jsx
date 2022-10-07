@@ -14,7 +14,6 @@ const Login = () => {
        axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
         .then(res =>{ 
                         localStorage.setItem('token', res.data.data.token)
-                        alert('User login')
                         navigate('/')
                     })
             .catch(error => {

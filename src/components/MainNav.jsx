@@ -8,6 +8,7 @@ import SearchInput from './SearchInput';
 function MainNav() {
 
   const navigate = useNavigate()
+    const cart = useSelector(state => state.cart)
 
   const logout = () =>{
       localStorage.setItem('token', '')
@@ -16,9 +17,7 @@ function MainNav() {
   
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
-
-  const cart = useSelector(state => state.cart)
-
+  
   return (
     <>
       <Navbar bg="primary" variant="dark" expand='lg'>
@@ -52,7 +51,7 @@ function MainNav() {
                     )
                   }
                 </NavDropdown>
-                  <Nav.Link  className='d-flex align-items-center' onClick={handleShow} style={{fontSize: '20px', color: 'green'}}><i className="fa-solid fa-cart-shopping"></i><span>{cart.length}</span></Nav.Link>
+                  <Nav.Link  className='d-flex align-items-center' onClick={handleShow} style={{fontSize: '20px', color: '#40916c'}}><i className="fa-solid fa-cart-shopping"></i><span>{cart.length}</span></Nav.Link>
                   <Cart show={show} setShow={setShow}/>
             </Nav>
           </Navbar.Collapse>
