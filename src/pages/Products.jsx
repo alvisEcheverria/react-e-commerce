@@ -75,10 +75,10 @@ const Products = () => {
                                         <Card  style={{width: '250px', height: '360px', cursor: 'pointer', marginRight: '10rem'}} 
                                                 onClick={()=> navigate(`/product/${product.id}`)}>  
                                             <Card.Img   variant="top" 
-                                                        src={product.productImgs[2]} 
+                                                        src={product.productImgs[0]} 
                                                         alt="product"
-                                                        className='img-fluid ps-5 pe-5 mt-4 mb-4'
-                                                        style={{height: '150px'}} 
+                                                        className='img-fluid ps-3 pe-3 mt-4 mb-4'
+                                                        style={{height: '150px', objectFit: 'contain'}} 
                                                         
                                             />
                                             <Card.Body className='border-top'>

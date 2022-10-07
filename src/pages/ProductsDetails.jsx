@@ -49,15 +49,15 @@ const ProductsDetails = () => {
             <Row>
                 <Col lg={7}>
                     <div id='img-detail' className='text-center' style={{width: '100%'}}>
-                        <img className='img-fluid' style={{height: '300px'}} src={productImg} alt="" />
+                        <img className='img-fluid' style={{height: '300px', objectFit: 'contain'}} src={productImg} alt="" />
                     </div>
                     <div className='d-flex justify-content-center gap-5'>
 
-                        <img className='img-fluid border mt-5 p-2' onClick={()=> setProductImg(productDetail?.productImgs[0])} style={{height: '100px', cursor: 'pointer'}} src={productDetail?.productImgs[0]} alt="" />
+                        <img className='img-fluid border mt-5 p-2' onClick={()=> setProductImg(productDetail?.productImgs[0])} style={{height: '100px', cursor: 'pointer', objectFit: 'contain'}} src={productDetail?.productImgs[0]} alt="" />
                     
-                        <img className='img-fluid border mt-5 p-2' onClick={()=> setProductImg(productDetail?.productImgs[1])} style={{height: '100px', cursor: 'pointer'}} src={productDetail?.productImgs[1]} alt="" />
+                        <img className='img-fluid border mt-5 p-2' onClick={()=> setProductImg(productDetail?.productImgs[1])} style={{height: '100px', cursor: 'pointer', objectFit: 'contain'}} src={productDetail?.productImgs[1]} alt="" />
                     
-                        <img className='img-fluid border mt-5 p-2'  onClick={()=> setProductImg(productDetail?.productImgs[2])} style={{height: '100px', cursor: 'pointer'}} src={productDetail?.productImgs[2]} alt="" />
+                        <img className='img-fluid border mt-5 p-2'  onClick={()=> setProductImg(productDetail?.productImgs[2])} style={{height: '100px', cursor: 'pointer', objectFit: 'contain'}} src={productDetail?.productImgs[2]} alt="" />
                         
                     </div>
 
@@ -106,7 +106,7 @@ const ProductsDetails = () => {
                                         src={products?.productImgs[2]}
                                         alt="product"
                                         className='img-fluid ps-5 pe-5 mt-4 mb-4'
-                                        style={{height: '150px'}} 
+                                        style={{height: '150px', objectFit: 'contain'}} 
                                     />
                                     <Card.Body className='border-top'>
                                         <Card.Title>

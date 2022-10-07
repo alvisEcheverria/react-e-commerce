@@ -16,10 +16,16 @@ const Purshase = () => {
 
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
-    const va = () =>{
-        const date = new Date(purshases[0]?.createdAt)
+    const date = (createdAt) =>{
+
+        const date = new Date(createdAt)
         return date.toLocaleDateString(undefined, options)
+        
     }
+    
+    useEffect(()=>{
+        date()
+    }, [])
 
     return (
         <Container className='mt-5 mb-5'>
@@ -31,9 +37,10 @@ const Purshase = () => {
                     <ListGroup.Item className='mt-5 p-4 border mx-auto' as="li" 
                                     key={purshase.id}
                                     style={{listStyle: 'none', width: '70%'}}>
-                        <p  style={{color: 'black', fontWeight: '700'}}>{va()}</p>
+                        <p  style={{color: 'black', fontWeight: '700'}}>{date(purshase.createdAt)}</p>
+
                         {
-                            purshase.cart.products.map((products) =>(
+                            purshase.cart.products.map(products =>(
                                 <li className='border-top border-bottom' 
                                     key={products.id} 
                                     onClick={()=> navigate(`/product/${products.id}`)}
