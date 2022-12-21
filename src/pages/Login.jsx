@@ -11,7 +11,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     const submit = (data) => {
-       axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', data)
+       axios.post('https://e-commerce-api.academlo.tech/api/v1/users/login', data)
         .then(res =>{ 
                         localStorage.setItem('token', res.data.data.token)
                         navigate('/')

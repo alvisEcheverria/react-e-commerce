@@ -11,11 +11,11 @@ export const purshaseSlice = createSlice({
             return action.payload;
         }
     }
-})
+});
 
 export const getPurshasesThunk = () => (dispatch) => {
     dispatch(setIsloading(true));
-    return axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', getConfig())
+    return axios.get('https://e-commerce-api.academlo.tech/api/v1/purchases', getConfig())
         .then(res => dispatch(setPurshases(res.data.data.purchases)))
         .finally(() => dispatch(setIsloading(false)));
 }

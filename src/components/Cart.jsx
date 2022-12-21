@@ -19,7 +19,7 @@ const Cart = ({show, setShow}) => {
     }, [])
 
     const deleteProduct = (productId) =>{
-        axios.delete(`https://ecommerce-api-react.herokuapp.com/api/v1/cart/${productId}`, getConfig())
+        axios.delete(`https://e-commerce-api.academlo.tech/api/v1/cart/${productId}`, getConfig())
             .then(()=> dispatch(getCartThunk()))
     }
     
@@ -51,7 +51,7 @@ const Cart = ({show, setShow}) => {
             null
         }
         else{
-           axios.patch('https://ecommerce-api-react.herokuapp.com/api/v1/cart', upCartMin, getConfig())
+           axios.patch('https://e-commerce-api.academlo.tech/api/v1/cart', upCartMin, getConfig())
             .then(()=> dispatch(getCartThunk())) 
         } 
 
@@ -79,7 +79,7 @@ const Cart = ({show, setShow}) => {
             null
         }
         else{
-            axios.patch('https://ecommerce-api-react.herokuapp.com/api/v1/cart', upCartMax, getConfig())
+            axios.patch('https://e-commerce-api.academlo.tech/api/v1/cart', upCartMax, getConfig())
             .then(()=> dispatch(getCartThunk()))
         }
 
