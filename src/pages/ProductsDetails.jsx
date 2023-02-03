@@ -51,7 +51,7 @@ const ProductsDetails = () => {
                     <div id='img-detail' className='text-center' style={{width: '100%'}}>
                         <img className='img-fluid' style={{height: '300px', objectFit: 'contain'}} src={productImg} alt="" />
                     </div>
-                    <div className='d-flex justify-content-center gap-5'>
+                    <div className='d-flex justify-content-center gap-4'>
 
                         <img className='img-fluid border mt-5 p-2' onClick={()=> setProductImg(productDetail?.productImgs[0])} style={{height: '100px', cursor: 'pointer', objectFit: 'contain'}} src={productDetail?.productImgs[0]} alt="" />
                     

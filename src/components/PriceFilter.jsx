@@ -46,7 +46,7 @@ const PriceFilter = () => {
     }
 
     return (
-        <Form className='mt-5'>
+        <Form className='mt-5 mb-5'>
             <p className='border-bottom pb-2'>Price</p>
             <InputGroup>
                 <div className='mb-3'>

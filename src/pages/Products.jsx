@@ -31,10 +31,9 @@ const Products = () => {
     }
 
     return (
-        <Container className='mt-5 mb-5'>
+        <Container className='m-auto mt-5'>
              <Row>
-                <Col xs={10} lg={2} className='mb-5'>
-
+                <Col>
                     <ListGroup as="ul">
                         <ListGroup.Item as="li" action
                                                 onClick={()=>dispatch(setFilteredCategory(products))}
@@ -66,38 +65,36 @@ const Products = () => {
                         <img className='img-fluid p-5' src="./img/not_found.jpg" alt="" />
                     </Col>
                 }
-                <Col lg={10}>
-                    <CardGroup>
-                        <Row xs={1} md={2} lg={3} className="g-3">
-                                {
-                                    filteredCategory.map(product =>(
-                                    <Col key={product.id}>
-                                        <Card  style={{width: '250px', height: '360px', cursor: 'pointer', marginRight: '10rem'}} 
-                                                onClick={()=> navigate(`/product/${product.id}`)}>  
-                                            <Card.Img   variant="top" 
-                                                        src={product.productImgs[0]} 
-                                                        alt="product"
-                                                        className='img-fluid ps-3 pe-3 mt-4 mb-4'
-                                                        style={{height: '150px', objectFit: 'contain'}} 
-                                                        
-                                            />
-                                            <Card.Body className='border-top'>
-                                            <Card.Text style={{fontWeight: '700', color: 'black', fontSize: '10px'}}>
-                                                    {product.category.name}
-                                                </Card.Text>
-                                                <Card.Title>
-                                                    {product.title} 
-                                                </Card.Title>
-                                                <Card.Text style={{textAlign: 'end', fontWeight: '700', color: 'black'}}>
-                                            
-                                                <small> <b>$ {product.price}</b> </small>
-                                                </Card.Text>
-                                            </Card.Body>
-                                    </Card> 
-                                    </Col>  
-                                ))}
-                        </Row>
-                    </CardGroup>
+                <Col lg={10} className='mx-auto'>
+                    <Row xs={1} md={2} lg={3} className="g-5">
+                        {
+                            filteredCategory.map(product =>(
+                            <Col >
+                                <Card className='m-auto' style={{width: '250px', height: '360px', cursor: 'pointer', marginRight: '10rem'}} 
+                                        onClick={()=> navigate(`/product/${product.id}`)}>  
+                                    <Card.Img   variant="top" 
+                                                src={product.productImgs[0]} 
+                                                alt="product"
+                                                className='img-fluid ps-3 pe-3 mt-4 mb-4'
+                                                style={{height: '150px', objectFit: 'contain'}} 
+                                                
+                                    />
+                                    <Card.Body className='border-top'>
+                                    <Card.Text style={{fontWeight: '700', color: 'black', fontSize: '10px'}}>
+                                            {product.category.name}
+                                        </Card.Text>
+                                        <Card.Title>
+                                            {product.title} 
+                                        </Card.Title>
+                                        <Card.Text style={{textAlign: 'end', fontWeight: '700', color: 'black'}}>
+                                    
+                                        <small> <b>$ {product.price}</b> </small>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card> 
+                            </Col>  
+                        ))}
+                    </Row>
                 </Col>
             </Row>
         </Container>
