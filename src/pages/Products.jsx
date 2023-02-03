@@ -66,7 +66,7 @@ const Products = () => {
                     </Col>
                 }
                 <Col lg={10} className='mx-auto'>
-                    <Row xs={1} md={2} lg={3} className="g-5">
+                    <Row xs={1} md={2} lg={3} className="g-4">
                         {
                             filteredCategory.map(product =>(
                             <Col >
