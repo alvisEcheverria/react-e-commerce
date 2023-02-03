@@ -31,7 +31,7 @@ const Products = () => {
     }
 
     return (
-        <Container className='m-auto mt-5'>
+        <Container className='mx-auto mt-5 mb-5'>
              <Row>
                 <Col>
                     <ListGroup as="ul">
